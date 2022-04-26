@@ -31,5 +31,4 @@ public class _16_16_部分排序 {
 		
 		return new int[] {l, r};
     }
-
 }

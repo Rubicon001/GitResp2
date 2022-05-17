@@ -1,0 +1,20 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /yml
+
+person:
+  id: 11
+  age: 22
+  name: jack
+  nike-name: [zhangsna, lisi, wangwu]
+  map: {syx: 大神, level: 99}
+  dog:
+    age: 2
+    name: 花儿
+  dogs:
+    - age: 3
+      name: 当当
+    - age: 4
+      name: 麻豆
+

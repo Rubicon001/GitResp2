@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    用户名：{{username}}<br/>
+    qq：{{qq}}
+</div>
+
+
+<script>
+    const v = new Vue({
+        el: "#app",
+        data: {
+            username: "syx",
+            qq: "1357909685"
+        }
+    });
+</script>
+</body>
+</html>

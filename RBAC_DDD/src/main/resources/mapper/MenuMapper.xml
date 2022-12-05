@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.infrastructure.mapper.MenuMapper">
+
+    <insert id="insertMenu" parameterType="com.adapter.DTO.MenuDTO">
+        INSERT INTO menu(menu_name) VALUES (#{menuDTO.menuName})
+    </insert>
+
+    <delete id="deleteMenuById" parameterType="Integer">
+        DELETE FROM menu where id = #{id}
+    </delete>
+    
+    <delete id="deleteRoleMenuByMenuId" parameterType="Integer">
+        DELETE FROM role_menu where menu_id = #{MenuId}
+    </delete>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.infrastructure.mapper.UserMapper">
+    <select id="selectByLogo" resultType="com.infrastructure.DO.User" >
+        select id, name, age from company where logo = #{logo}
+    </select>
+
+    <insert id="insertUser" parameterType="com.adapter.DTO.UserDTO">
+        INSERT INTO user(name, age) VALUES (#{userDTO.name}, #{userDTO.age})
+    </insert>
+
+    <delete id="deleteUserById" parameterType="Integer">
+        DELETE FROM user where id = #{id}
+    </delete>
+
+    <select id="selectUserById" parameterType="Integer" resultType="com.infrastructure.DO.User">
+        SELECT id, name, age FROM user WHERE id = #{id}
+    </select>
+
+    <select id="selectRolesByUserId" parameterType="Integer" resultType="com.infrastructure.DO.Role">
+        SELECT id, role_name FROM role WHERE id IN (SELECT role_id FROM user_role WHERE user_id = #{userId})
+    </select>
+    
+    <select id="selectMenusByUserId" parameterType="Integer" resultType="com.infrastructure.DO.Menu">
+        SELECT DISTINCT id, menu_name FROM menu WHERE id IN
+            (SELECT DISTINCT menu_id FROM role_menu WHERE role_id IN
+                (SELECT role_id FROM user_role WHERE user_id = #{userId}))
+    </select>
+</mapper>
